@@ -1,0 +1,6 @@
+Failed to update user status t.GenericLanguageServerError: LanguageServerClient must be initialized first! {name: '', errorMetadata: {…}, stack: 'Error: LanguageServerClient must be initializ…h/api/node/extensionHostProcess.js:113:13525)', message: 'LanguageServerClient must be initialized first!'}
+
+extensionHostProcess.js:207
+(Antigravity) 2026-01-03 15:30:53 [INFO]: Language server started
+extensionHostProcess.js:207
+(Antigravity) 2026-01-03 15:30:53 [INFO]: LS lspClient started successfully

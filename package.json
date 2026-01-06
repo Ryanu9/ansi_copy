@@ -1,0 +1,63 @@
+{
+  "name": "copy-ansi-terminal",
+  "displayName": "Copy ANSI from Terminal",
+  "description": "Copy terminal selection preserving ANSI colors",
+  "version": "0.0.1",
+  "publisher": "user",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/ansi_copy.git"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.copyAnsi",
+    "onCommand:extension.toggleAnsiMode"
+  ],
+  "main": "./extension.js",
+  "extensionKind": [
+    "ui"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.copyAnsi",
+        "title": "Copy as ANSI Format (复制为ansi格式)"
+      },
+      {
+        "command": "extension.toggleAnsiMode",
+        "title": "Toggle ANSI Auto-Copy Mode (开关ANSI自动复制)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.copyAnsi",
+        "key": "ctrl+c a",
+        "mac": "cmd+c a",
+        "when": "terminalFocus"
+      },
+      {
+        "command": "extension.toggleAnsiMode",
+        "key": "alt+shift+a",
+        "mac": "opt+shift+a",
+        "when": "terminalFocus"
+      }
+    ],
+    "menus": {
+      "terminal/context": [
+        {
+          "command": "extension.copyAnsi",
+          "group": "9_cutcopypaste"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.74.0"
+  }
+}
