@@ -169,7 +169,11 @@ function convertHtmlToAnsi(html) {
                 // Closing tag
                 const tagName = token.substring(2, token.indexOf('>')).toLowerCase();
                 if (tagName === 'div') {
-                    if (!shouldMergeWithNextLine(output)) {
+                    if (shouldMergeWithNextLine(output)) {
+                        // If merging, remove *trailing* resets so the style continues
+                        // Regex: removes one or more \x1b[0m at the very end
+                        output = output.replace(/(\x1b\[0m)+$/, '');
+                    } else {
                         output += '\n';
                     }
                 } else if (tagName === 'br') {

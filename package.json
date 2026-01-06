@@ -2,7 +2,7 @@
   "name": "copy-ansi-terminal",
   "displayName": "Copy ANSI from Terminal",
   "description": "Copy terminal selection preserving ANSI colors",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publisher": "user",
   "repository": {
     "type": "git",
