@@ -2,6 +2,9 @@
 
 This extension allows you to copy text from the VS Code terminal (including Remote SSH sessions) while preserving the ANSI color codes.
 
+
+![1770487202328](image/README/1770487202328.gif)
+
 ## Setup
 
 1. Open this folder in VS Code.
@@ -11,16 +14,19 @@ This extension allows you to copy text from the VS Code terminal (including Remo
 ## Usage
 
 ### Method 1: Manual Shortcut
+
 1. Select text in the VS Code Integrated Terminal.
 2. Press `Ctrl+C` then `A` (Chord).
    - On macOS: `Cmd+C` then `A`.
 3. The selected text is copied to your clipboard with standard ANSI color codes.
 
 ### Method 2: UI Context Menu
+
 1. Select text in the terminal.
 2. Right-click and choose **"Copy as ANSI Format (复制为ansi格式)"**.
 
 ### Method 3: ANSI Auto-Copy Mode (Automatic)
+
 1. Press `Ctrl+Shift+0` to toggle **ANSI Auto-Copy Mode**.
    - A status bar item `$(terminal) ANSI Copy: ON` will appear.
 2. Whenever you select and copy text in the terminal (e.g. via `Ctrl+C` or "Copy on Selection"), the extension automatically detects the clipboard change and upgrades the text to ANSI format.
