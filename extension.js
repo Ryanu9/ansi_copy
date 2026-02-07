@@ -170,8 +170,7 @@ function convertHtmlToAnsi(html) {
                 const tagName = token.substring(2, token.indexOf('>')).toLowerCase();
                 if (tagName === 'div') {
                     if (shouldMergeWithNextLine(output)) {
-                        // If merging, remove *trailing* resets so the style continues
-                        // Regex: removes one or more \x1b[0m at the very end
+                        // Soft wrap: remove trailing resets so the style continues
                         output = output.replace(/(\x1b\[0m)+$/, '');
                     } else {
                         output += '\n';
@@ -334,9 +333,18 @@ function shouldMergeWithNextLine(text) {
     // Strip ANSI codes to check the actual text content
     const content = text.replace(/\x1b\[[0-9;]*m/g, '');
     if (content.length === 0) return false;
-    // If the last character is NOT whitespace, we assume it's a soft wrap (hit the edge) -> Merge
-    // If it IS whitespace, it implies padding or explicit break -> Newline
-    return !/\s/.test(content[content.length - 1]);
+
+    const lastChar = content[content.length - 1];
+
+    // If the last character is whitespace, it's padding -> Newline
+    if (/\s/.test(lastChar)) return false;
+
+    // If the last character is a box-drawing / block element character (tmux borders, TUI frames, etc.) -> Newline
+    // U+2500–U+257F: Box Drawing, U+2580–U+259F: Block Elements
+    if (/[\u2500-\u257F\u2580-\u259F]/.test(lastChar)) return false;
+
+    // Otherwise, assume soft wrap -> Merge
+    return true;
 }
 
 function deactivate() { }
