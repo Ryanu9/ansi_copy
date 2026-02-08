@@ -1,1 +1,24 @@
-copy-ansi-terminal-0.0.4.vsix
+# Dependencies
+node_modules/
+
+# Build output
+*.vsix
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor
+.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.*
