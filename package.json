@@ -33,20 +33,7 @@
         "title": "Toggle ANSI Auto-Copy Mode (开关ANSI自动复制)"
       }
     ],
-    "keybindings": [
-      {
-        "command": "extension.copyAnsi",
-        "key": "ctrl+c a",
-        "mac": "cmd+c a",
-        "when": "terminalFocus"
-      },
-      {
-        "command": "extension.toggleAnsiMode",
-        "key": "alt+shift+a",
-        "mac": "opt+shift+a",
-        "when": "terminalFocus"
-      }
-    ],
+    "keybindings": [],
     "menus": {
       "terminal/context": [
         {
